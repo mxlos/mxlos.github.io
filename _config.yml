@@ -1,0 +1,12 @@
+# Site settings
+title: Mexicali Open Source
+email: contacto@mxlos.org
+description: "Mexicali Open Source es una comunidad de voluntarios que promueven el uso de las tecnologías de código libre en la ciudad."
+baseurl: ""
+url: "http://mxlos.org"
+twitter_username: MxlOS
+github_username:  MxlOS
+
+# Build settings
+markdown: kramdown
+permalink: pretty
