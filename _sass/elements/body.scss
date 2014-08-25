@@ -1,0 +1,50 @@
+body {
+	background-color: $body-background-color;
+	color: $default-font-color;
+	font-family: $font-family-main;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 0;
+	min-width: 320px;
+
+	a {
+		color: $link-color;
+		text-decoration: none;
+
+		&:hover { text-decoration: underline; }
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: $font-family-headers;
+		font-weight: 400;
+		margin: 1em 0;
+	}
+
+	h1 { font-size: 32px; }
+
+	h2 { font-size: 32px; }
+
+	h3 { font-size: 30px; }
+
+	h4 { font-size: 28px; }
+
+	h5 { font-size: 24px; }
+
+	h6 { font-size: 22px; }
+
+	img {
+		height: auto;
+		max-width: 100%;
+	}
+
+	strong { font-weight: 600; }
+
+	.wrapper {
+		clear: both;
+		margin: 0 auto;
+		max-width: 760px;
+		overflow: hidden;
+		position: relative;
+		width: 95%;
+	}
+}

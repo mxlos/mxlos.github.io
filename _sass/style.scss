@@ -1,0 +1,35 @@
+@charset 'utf-8';
+
+// Fonts
+$font-family-main: 'Source Sans Pro', sans-serif;
+$font-family-headers: 'Oswald', sans-serif;
+$font-icons: 'FontAwesome', sans-serif;
+
+// Colors
+$default-font-color: #6f787f;
+$main-color: #29404e;
+$body-background-color: #f3f4f7;
+$gray-color: #f5f5f5;
+$link-color: lighten($main-color, 25%);
+$alternative-color: #e84d3b;
+
+// Social Navigation Colors
+$facebook-color: #3b5998;
+$github-color: #333333;
+$mailchimp-color: #52bad5;
+$twitter-color: #00aced;
+
+// Message's Color
+$message-blue-color: #d9edf7;
+$message-green-color: #dff0d8;
+$message-red-color: #f2dede;
+$message-yellow-color: #fcf8e3;
+
+@import 'normalize.scss';
+
+@import 'elements/grid.scss';
+@import 'elements/box.scss';
+@import 'elements/body.scss';
+@import 'elements/header.scss';
+@import 'elements/content.scss';
+@import 'elements/footer.scss';

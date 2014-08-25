@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<section id="content">
+	<div class="row wrapper">
+		<div class="col col-span-3 sidebar">
+			<ul class="slider"><li style="dispaly:none;">No Items</li></ul><!-- .slider -->
+
+			<ul class="stats">
+				<li class="row">
+					<span class="col label">Desde</span>
+					<span class="col value">2012</span>
+				</li>
+
+				<li class="row members">
+					<span class="col label">Miembros</span>
+					<span class="col value"></span>
+				</li>
+
+				<li class="row">
+					<span class="col label">Publicaciones</span>
+					<span class="col value">{{ site.categories['blog'].size }}</span>
+				</li>
+
+				<li class="row">
+					<span class="col label">Eventos</span>
+					<span class="col value">{{ site.categories['meetings'].size }}</span>
+				</li>
+			</ul><!-- .stats -->
+
+			<ul class="social-profiles">
+				<li class="facebook">
+					<a class="row" href="#" target="_blank">
+						<span class="col col-span-3 label"><i class="fa fa-facebook"></i></span>
+						<span class="col col-span-9 value"></span>
+					</a>
+				</li><!-- .facebook -->
+
+				<li class="github">
+					<a class="row" href="#" target="_blank">
+						<span class="col col-span-3 label"><i class="fa fa-github"></i></span>
+						<span class="col col-span-9 value"></span>
+					</a>
+				</li><!-- .github -->
+
+				<!--li class="twitter">
+					<a class="row" href="#" target="_blank">
+						<span class="col col-span-3 label"><i class="fa fa-twitter"></i></span>
+						<span class="col col-span-9 value">23 Seguidores</span>
+					</a>
+				</li><!-- .twitter -->
+			</ul><!-- .social-profiles -->
+		</div><!-- .sidebar -->
+
+		<div class="col col-span-6 content">
+			<div class="box about">
+				<div class="box-header">
+					<h2 class="title">Acerca De</h2>
+				</div><!-- .post-header -->
+
+				<div class="box-body">
+					<div class="box-content">
+						{{ content }}
+						
+					</div><!-- .box-content -->
+
+					<div class="row box-meta useful-links">
+						<div class="col col-span-5 posts-box">
+							<h3>Últimas Publicaciones</h3>
+							<ul class="posts-list">
+								{% for post in site.categories['blog'] limit:4 %}
+									<li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+								{% endfor %}
+							</ul><!-- .posts-list -->
+						</div><!-- .post-list -->
+
+						<div class="col col-span-5 meetings-box">
+							<h3>Eventos Recientes</h3>
+							<ul class="meetings-list">
+								{% for post in site.categories['meetings'] limit:5 %}
+									<li>
+										<a class="row" href="{{ post.url | prepend: site.baseurl }}">
+											<span class="col date">{{ post.date | date: "%m/%y" }}</span>
+											<span class="col name">{{ post.title }}</span>
+										</a>
+									</li>
+								{% endfor %}
+							</ul><!-- .meetings-list -->
+						</div><!-- .meetings-box -->
+					</div><!-- .box-meta -->
+				</div><!-- .box-body -->
+			</div><!-- .about -->
+		</div><!-- .content -->
+	</div><!-- .wrapper -->
+</section><!-- #content -->

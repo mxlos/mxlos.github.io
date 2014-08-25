@@ -1,0 +1,11 @@
+- id: github
+  name: GitHub
+  url: http://github.com
+  image: github.png
+  description: Versiona tu código.
+
+- id: oreilly
+  name: O'Reilly
+  url: http://www.oreilly.com
+  image: oreilly.jpg
+  description: Compra libros en línea.

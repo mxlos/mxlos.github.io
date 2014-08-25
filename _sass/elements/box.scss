@@ -1,0 +1,38 @@
+.box {
+	background-color: #fff;
+	border: 1px solid darken($gray-color, 5%);
+
+	&:not(:last-child) { margin-bottom: 1em; }
+
+	.box-header {
+		background-color: lighten($gray-color, 2.5%);
+		border-bottom: 1px solid darken($gray-color, 5%);
+
+		.title {
+			color: darken($gray-color, 50%);
+			font-family: $font-family-main;
+			font-size: 18px;
+			font-weight: 600;
+			margin: 0;
+			padding: 0.50em 1em;
+		}
+	}
+
+	.box-body {
+		padding: 1em;
+
+		.box-content {
+			> * {
+				&:first-child { margin-top: 0 !important; }
+
+				&:last-child { margin-bottom: 0; }
+			}
+		}
+	}
+
+	.box-meta {
+		border-top: 1px solid darken($gray-color, 5%);
+		margin-top: 1em;
+		padding-top: 1em;
+	}
+}

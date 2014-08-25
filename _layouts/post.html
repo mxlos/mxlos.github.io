@@ -1,15 +1,28 @@
 ---
 layout: default
 ---
-<div class="post">
 
-  <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+<section id="content">
+	<div class="row wrapper">
+		<div class="col col-span-12 content">
+			<div class="box blog">
+				<div class="box-header">
+					<h2 class="title">{{ page.title }}</h2>
+				</div><!-- .post-header -->
 
-  <article class="post-content">
-  {{ content }}
-  </article>
+				<div class="box-body">
+					<div class="box-content single-box">
+						{{ content }}
+					</div><!-- .box-content -->
 
-</div>
+					<div class="row box-meta single-meta">
+						<div class="col col-span-8 single-info">
+							{{ page.date | date: "%d/%m/%Y" }}
+							{% if page.author %} por {{ site.data.authors[page.author].name }} {% endif %}
+						</div><!-- .single-info -->
+					</div><!-- .box-meta -->
+				</div><!-- .box-body -->
+			</div><!-- .blog -->
+		</div><!-- .content -->
+	</div><!-- .wrapper -->
+</section><!-- #content -->

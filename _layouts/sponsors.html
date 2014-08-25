@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<section id="content">
+	<div class="row wrapper">
+		<div class="col col-span-12 content">
+			<div class="box blog">
+				<div class="box-header">
+					<h2 class="title">{{ page.title }}</h2>
+				</div><!-- .post-header -->
+
+				<div class="box-body">
+					<div class="box-content single-box">
+						{{ content }}
+					</div><!-- .box-content -->
+
+					<div class="box-meta sponsors-box">
+						<ul class="row sponsors-list">
+							{% for sponsor in site.data.sponsors %}
+								<li class="col col-span-3">
+									<a class="image" href="{{ sponsor.url }}"><img alt="{{ sponsor.name }}" src="{{ site.baseurl }}/images/sponsors/{{ sponsor.image }}" /></a>
+									<h5><a href="{{ sponsor.url }}">{{ sponsor.name }}</a></h5>
+									{% if sponsor.description %}<div class="description">{{ sponsor.description }}</div>{% endif %}
+								</li>
+							{% endfor %}
+						</ul><!-- .sponsors-list -->
+					</div><!-- .box-meta -->
+				</div><!-- .box-body -->
+			</div><!-- .blog -->
+		</div><!-- .content -->
+	</div><!-- .wrapper -->
+</section><!-- #content -->

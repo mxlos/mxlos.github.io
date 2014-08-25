@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<section id="content">
+	<div class="row wrapper">
+		<div class="col col-span-12 content">
+			<div class="box blog">
+				<div class="box-header">
+					<h2 class="title">{{ page.title }}</h2>
+				</div><!-- .post-header -->
+
+				<div class="box-body">
+					<div class="box-content loop-box">
+						<ul class="loop-list">
+							{% for post in site.categories['meetings'] %}
+								<li>
+									<h3 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+									<div class="meta">
+										{{ post.date | date: "%d/%m/%Y" }}
+										{% if page.authorid %} por {{ site.data.authors[page.authorid].name }} {% endif %}
+									</div>
+								</li>
+							{% endfor %}
+						</ul><!-- .loop-list -->
+					</div><!-- .box-content -->
+				</div><!-- .box-body -->
+			</div><!-- .blog -->
+		</div><!-- .content -->
+	</div><!-- .wrapper -->
+</section><!-- #content -->

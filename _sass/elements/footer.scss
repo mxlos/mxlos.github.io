@@ -1,0 +1,18 @@
+#footer {
+	clear: both;
+	text-align: center;
+
+	.copyright {
+		background-color: #fff;
+		border-top: 2px solid darken($gray-color, 5%);
+		color: lighten($main-color, 5%);
+		font-weight: 400;
+	}
+
+	.technologies {
+		background-color: $main-color;
+		color: #fff;
+
+		a { color: lighten($link-color, 25%); }
+	}
+}
