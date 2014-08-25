@@ -26,24 +26,6 @@ $(document).ready(function() {
 		});
 	}
 	
-	/*
-	Comentarios agregados para forzar regenerar el JS
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Hasta aqui...
-	*/
-
 	// Facebook Scripts
 	if($('.sidebar .stats .members').length || $('.sidebar .social-profiles').length) {
 		$.ajaxSetup({ cache: true });
@@ -59,24 +41,27 @@ $(document).ready(function() {
 					// and signed request each expire
 					var uid = response.authResponse.userID;
 					var accessToken = response.authResponse.accessToken;
+					console.log('Respuesta Login');
+					console.log(response);
 					FB.api('/318240698253471/members', { access_token:accessToken }, function(response) {
+						console.log('Respuesta Members');
 						console.log(response);
-						if (response  && !response .error) {
+						if (response  && !response.error) {
 							if($('.sidebar .stats .members').length) {
 								$('.sidebar .stats .members .value').html(response.data.length);
 							}
 							if($('.sidebar .social-profiles')) {
 								$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
 							}
+						} else if (response.status === 'not_authorized') {
+							if($('.sidebar .stats .members').length) {
+								$('.sidebar .stats .members .value').html(0);
+							}
+							if($('.sidebar .social-profiles')) {
+								$('.sidebar .social-profiles .facebook .value').html('0 Miembros');
+							}
 						}
 					});
-				} else if (response.status === 'not_authorized') {
-					if($('.sidebar .stats .members').length) {
-						$('.sidebar .stats .members .value').html(0);
-					}
-					if($('.sidebar .social-profiles')) {
-						$('.sidebar .social-profiles .facebook .value').html('0 Miembros');
-					}
 				}
 			});
 		});
