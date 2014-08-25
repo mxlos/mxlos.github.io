@@ -14,7 +14,7 @@
 <div id="fb-root"></div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src={{ "/js/scripts.js" | prepend: site.baseurl }}></script>
-{% if page.path contains 'meetings' and page.path contains '_post' %}
+{% if page.event != nil %}
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var content = $('#content .content .blog .single-box');
@@ -42,11 +42,11 @@
 						details += '<li><strong>Sede</strong>: '+response.location+'</li>';
 						details += '<li><strong>Dirección</strong>: '+response.venue.street+'</li>';
 						details += '<li><strong>Fecha</strong>: '+response.start_time+'</li>';
+						content.append('<ul>'+details+'</ul>');
+						content.append('<h6>Miembros</h6>');
 					}
 				});
-				content.append('<ul>'+details+'</ul>');
 
-				content.append('<h6>Miembros</h6>');
 				FB.api('/'+{{ page.event }}+'/attending', 'get', { access_token:'274324772768932|YG_8Hdvx8Z_PGP-qt9akvHmWZ4c' }, function(response) {
 					if (response  && !response.error) {
 						users += '<li><strong>Confirmados</strong>: '+response.data.length+'</li>';
@@ -55,9 +55,9 @@
 				FB.api('/'+{{ page.event }}+'/maybe', 'get', { access_token:'274324772768932|YG_8Hdvx8Z_PGP-qt9akvHmWZ4c' }, function(response) {
 					if (response  && !response.error) {
 						users += '<li><strong>Tentativos</strong>: '+response.data.length+'</li>';
+						content.append('<ul>'+users+'</ul>');
 					}
 				});
-				content.append('<ul>'+users+'</ul>');
 			});
 		});
 	</script>
