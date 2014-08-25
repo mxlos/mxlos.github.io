@@ -1,7 +1,27 @@
 $(document).ready(function() {
+	// Generar Slider
+	if($('.sidebar .slider').length) {
+		$('.sidebar .slider').html('');
+		$.ajax({
+			type: 'GET',
+			url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&format=json&api_key=bca5967b8308a3c928db8a7a5a34b5c9&photoset_id=72157646408522657&extras=url_m',
+			async: false,
+			jsonpCallback: 'jsonFlickrApi',
+			contentType: "application/json",
+			dataType: 'jsonp',
+			success: function(data) {
+				//$('.sidebar .slider').append();
+				$.each(data.photoset.photo, function(index, photo) {
+					$('.sidebar .slider').append('<li><img alt="'+photo.title+'" src="'+photo.url_m+'" /></li>');
+				});
+				$('.slider li:first-child').addClass('active');
+			},
+			error: function(data) {}
+		});
+	}
+
 	// Slider de página principal, cambia cada 5 segundos
 	if($('.slider').length) {
-		$('.slider li:first-child').addClass('active');
 		setInterval(function() {
 			var $active = $('.slider li.active');
 			var $next = ($active.next().length > 0) ? $active.next() : $('.slider > *:first-child');
@@ -14,16 +34,6 @@ $(document).ready(function() {
 				$active.removeAttr('style');
 			});
 		}, 5000);
-	}
-
-	// Generate Slider
-	if($('.sidebar .slider').length) {
-		$('.sidebar .slider').html('');
-		console.log('Entrando a Flickr...');
-		$.getJSON('https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&format=json&api_key=bca5967b8308a3c928db8a7a5a34b5c9&photoset_id=72157646408522657&extras=url_m', function(data) {
-			//$('.sidebar .slider').append();
-			console.log('Test... si entramos');
-		});
 	}
 
 	// Facebook Scripts
