@@ -26,28 +26,6 @@ $(document).ready(function() {
 		});
 	}
 
-	/* Forzar reescritura de JS
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	*/
-
 	// Facebook Scripts
 	if($('.sidebar .stats .members').length || $('.sidebar .social-profiles').length) {
 		$.ajaxSetup({ cache: true });
@@ -55,6 +33,8 @@ $(document).ready(function() {
 			FB.init({ appId: '274324772768932' });
 			$('#loginbutton, #feedbutton').removeAttr('disabled');
 			FB.getLoginStatus(function(response) {
+				console.log('Respuesta Login');
+				console.log(response);
 				if (response.status === 'connected') {
 					// the user is logged in and has authenticated your
 					// app, and response.authResponse supplies
@@ -63,8 +43,6 @@ $(document).ready(function() {
 					// and signed request each expire
 					var uid = response.authResponse.userID;
 					var accessToken = response.authResponse.accessToken;
-					console.log('Respuesta Login');
-					console.log(response);
 					FB.api('/318240698253471/members', { access_token:accessToken }, function(response) {
 						console.log('Respuesta Members');
 						console.log(response);
