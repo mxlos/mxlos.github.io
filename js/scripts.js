@@ -60,7 +60,7 @@ $(document).ready(function() {
 						$('.sidebar .social-profiles .facebook .value').html('0 Miembros');
 					}
 				}
-			}
+			});
 		});
 	}
 
