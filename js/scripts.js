@@ -25,6 +25,24 @@ $(document).ready(function() {
 			console.log('Test, vamos a ver si desde la web regresa algo');
 		});
 	}
+	
+	/*
+	Comentarios agregados para forzar regenerar el JS
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Hasta aqui...
+	*/
 
 	// Facebook Scripts
 	if($('.sidebar .stats .members').length || $('.sidebar .social-profiles').length) {
