@@ -30,18 +30,19 @@ $(document).ready(function() {
 	// Facebook Scripts
 	$.ajaxSetup({ cache: true });
 	$.getScript('https://connect.facebook.net/es_LA/all.js', function() {
-		FB.init({ appId: '331876633640132' });
-		//$('#loginbutton, #feedbutton').removeAttr('disabled');
-		//FB.getLoginStatus(updateStatusCallback);
-
-		if($('.sidebar .stats .members .value').length) {
-			FB.api('/318240698253471/members', function(response ) {
-				if (response  && !response .error) {
-					$('.sidebar .stats .members .value').html(response.data.length);
-					$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
-				}
-			});
-		}
+		FB.init({ appId: '274324772768932' });
+		$('#loginbutton, #feedbutton').removeAttr('disabled');
+		FB.getLoginStatus(function() {
+			if($('.sidebar .stats .members .value').length) {
+				FB.api('/318240698253471/members', function(response) {
+					console.log(response);
+					if (response  && !response .error) {
+						$('.sidebar .stats .members .value').html(response.data.length);
+						$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
+					}
+				});
+			}
+		});
 	});
 
 	// GitHub & Twitter Scripts
