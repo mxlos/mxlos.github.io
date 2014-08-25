@@ -19,10 +19,19 @@ $(document).ready(function() {
 	// Generate Slider
 	if($('.sidebar .slider').length) {
 		$('.sidebar .slider').html('');
-		console.log('yess');
+		console.log('Entrando a Flickr...');
 		$.getJSON('https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&format=json&api_key=bca5967b8308a3c928db8a7a5a34b5c9&photoset_id=72157646408522657&extras=url_m', function(data) {
 			//$('.sidebar .slider').append();
-			console.log('Test, vamos a ver si desde la web regresa algo');
+			console.log('Test... si entramos');
+		});
+		console.log('Entrando por AJAX...');
+		$.ajax({
+			url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&format=json&api_key=bca5967b8308a3c928db8a7a5a34b5c9&photoset_id=72157646408522657&extras=url_m',
+			dataType: 'json',
+			success: function(data){
+				console.log('Test... si entramos');
+				console.log(data);
+			}
 		});
 	}
 
@@ -30,7 +39,7 @@ $(document).ready(function() {
 	if($('.sidebar .stats .members').length || $('.sidebar .social-profiles').length) {
 		$.ajaxSetup({ cache: true });
 		$.getScript('https://connect.facebook.net/es_LA/all.js', function() {
-			FB.init({ appId: '274324772768932' });
+			FB.init({ appId:'274324772768932' });
 			$('#loginbutton, #feedbutton').removeAttr('disabled');
 			FB.getLoginStatus(function(response) {
 				console.log('Respuesta Login');
@@ -43,7 +52,7 @@ $(document).ready(function() {
 					// and signed request each expire
 					var uid = response.authResponse.userID;
 					var accessToken = response.authResponse.accessToken;
-					FB.api('/318240698253471/members', { access_token:accessToken }, function(response) {
+					FB.api('/318240698253471/members', 'get', { access_token:accessToken }, function(response) {
 						console.log('Respuesta Members');
 						console.log(response);
 						if (response  && !response.error) {
