@@ -14,7 +14,7 @@
 <div id="fb-root"></div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src={{ "/js/scripts.js" | prepend: site.baseurl }}></script>
-{% if page.layout.to_s == 'meeting' %}
+{% if page.path contains 'meetings' %}
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var content = $('#content .content .blog .single-box');
@@ -42,7 +42,6 @@
 						details += '<li><strong>Sede</strong>: '+response.location+'</li>';
 						details += '<li><strong>Dirección</strong>: '+response.venue.street+'</li>';
 						details += '<li><strong>Fecha</strong>: '+response.start_time+'</li>';
-
 					}
 				});
 				content.append('<ul>'+details+'</ul>');
