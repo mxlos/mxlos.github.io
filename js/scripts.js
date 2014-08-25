@@ -36,7 +36,7 @@ $(document).ready(function() {
 				xfbml: true
 			});
 			$('#loginbutton, #feedbutton').removeAttr('disabled');
-			FB.api('/318240698253471/members', 'get', { access_token:'274324772768932|-foQ-ze-6pDruUwSdlNPmxNxe58' }, function(response) {
+			FB.api('/318240698253471/members', 'get', { access_token:'274324772768932|YG_8Hdvx8Z_PGP-qt9akvHmWZ4c' }, function(response) {
 				if (response  && !response.error) {
 					if($('.sidebar .stats .members').length) {
 						$('.sidebar .stats .members .value').html(response.data.length);
