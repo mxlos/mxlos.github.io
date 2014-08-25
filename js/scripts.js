@@ -24,15 +24,6 @@ $(document).ready(function() {
 			//$('.sidebar .slider').append();
 			console.log('Test... si entramos');
 		});
-		console.log('Entrando por AJAX...');
-		$.ajax({
-			url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&format=json&api_key=bca5967b8308a3c928db8a7a5a34b5c9&photoset_id=72157646408522657&extras=url_m',
-			dataType: 'json',
-			success: function(data){
-				console.log('Test... si entramos');
-				console.log(data);
-			}
-		});
 	}
 
 	// Facebook Scripts
