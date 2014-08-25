@@ -20,6 +20,7 @@ layout: default
 </section><!-- #content -->
 
 <script type="text/javascript">
+$(document).ready(function() {
 	var content = $('#content .content .blog .single-box');
 	var details = '';
 	var users = '';
@@ -53,14 +54,15 @@ layout: default
 		content.append('<h6>Miembros</h6>');
 		FB.api('/'+{{ page.event }}+'/attending', 'get', { access_token:'274324772768932|YG_8Hdvx8Z_PGP-qt9akvHmWZ4c' }, function(response) {
 			if (response  && !response.error) {
-				details += '<li><strong>Confirmados</strong>: '+response.data.length+'</li>';
+				users += '<li><strong>Confirmados</strong>: '+response.data.length+'</li>';
 			}
 		});
 		FB.api('/'+{{ page.event }}+'/maybe', 'get', { access_token:'274324772768932|YG_8Hdvx8Z_PGP-qt9akvHmWZ4c' }, function(response) {
 			if (response  && !response.error) {
-				details += '<li><strong>Tentativos</strong>: '+response.data.length+'</li>';
+				users += '<li><strong>Tentativos</strong>: '+response.data.length+'</li>';
 			}
 		});
-		
+		content.append('<ul>'+users+'</ul>');
 	});
+});
 </script>
