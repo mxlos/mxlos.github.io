@@ -1,7 +1,7 @@
 ---
-layout:   post
-title:    "Hola Mundo!"
-date:     2014-08-23 11:17:27
+layout: post
+title:  "Hola Mundo!"
+date:   2014-08-23 11:17:27
 author: tonnyorg
 ---
 
