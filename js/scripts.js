@@ -25,7 +25,29 @@ $(document).ready(function() {
 			console.log('Test, vamos a ver si desde la web regresa algo');
 		});
 	}
+
+	/* Forzar reescritura de JS
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	*/
+
 	// Facebook Scripts
 	if($('.sidebar .stats .members').length || $('.sidebar .social-profiles').length) {
 		$.ajaxSetup({ cache: true });
@@ -53,7 +75,7 @@ $(document).ready(function() {
 							if($('.sidebar .social-profiles')) {
 								$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
 							}
-						} else if (response.status === 'not_authorized') {
+						} else if(response.status === 'not_authorized') {
 							if($('.sidebar .stats .members').length) {
 								$('.sidebar .stats .members .value').html(0);
 							}
