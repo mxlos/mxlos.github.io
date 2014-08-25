@@ -9,3 +9,9 @@
   url: http://www.oreilly.com
   image: oreilly.jpg
   description: Compra libros en línea.
+
+- id: dynadot
+  name: DynaDot
+  url: https://www.dynadot.com
+  image: dynadot.png
+  description: Dominios y Alojamiento Web.
