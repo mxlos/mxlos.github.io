@@ -33,36 +33,24 @@ $(document).ready(function() {
 			FB.init({
 				appId:'274324772768932',
 				cookie: true,
-				status: true,
 				xfbml: true
 			});
 			$('#loginbutton, #feedbutton').removeAttr('disabled');
-			FB.getLoginStatus(function(response) {
-				if (response.status === 'connected') {
-					// the user is logged in and has authenticated your
-					// app, and response.authResponse supplies
-					// the user's ID, a valid access token, a signed
-					// request, and the time the access token 
-					// and signed request each expire
-					var uid = response.authResponse.userID;
-					var accessToken = response.authResponse.accessToken;
-					FB.api('/318240698253471/members', 'get', { access_token:accessToken }, function(response) {
-						if (response  && !response.error) {
-							if($('.sidebar .stats .members').length) {
-								$('.sidebar .stats .members .value').html(response.data.length);
-							}
-							if($('.sidebar .social-profiles')) {
-								$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
-							}
-						} else if(response.status === 'not_authorized') {
-							if($('.sidebar .stats .members').length) {
-								$('.sidebar .stats .members .value').html(0);
-							}
-							if($('.sidebar .social-profiles')) {
-								$('.sidebar .social-profiles .facebook .value').html('0 Miembros');
-							}
-						}
-					});
+			FB.api('/318240698253471/members', 'get', { access_token:'274324772768932|-foQ-ze-6pDruUwSdlNPmxNxe58' }, function(response) {
+				if (response  && !response.error) {
+					if($('.sidebar .stats .members').length) {
+						$('.sidebar .stats .members .value').html(response.data.length);
+					}
+					if($('.sidebar .social-profiles')) {
+						$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
+					}
+				} else if(response.status === 'not_authorized') {
+					if($('.sidebar .stats .members').length) {
+						$('.sidebar .stats .members .value').html(0);
+					}
+					if($('.sidebar .social-profiles')) {
+						$('.sidebar .social-profiles .facebook .value').html('0 Miembros');
+					}
 				}
 			});
 		});
