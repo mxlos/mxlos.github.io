@@ -11,19 +11,19 @@
 		<div class="wrapper">
 			<ul class="row navigation">
 				<li class="col">
-					<a {% if page.layout == 'home' %} class="current" {% endif %} href="{{ site.baseurl }}/"><i class="fa fa-home"></i> <span>Portada</span></a>
+					<a {% if page.layout == 'home' %}{{ 'class="current"' }}{% endif %} href="{{ site.baseurl }}/"><i class="fa fa-home"></i> <span>Portada</span></a>
 				</li>
 				<li class="col">
-					<a {% if page.layout == 'blog' or page.layout == 'post' %} class="current" {% endif %} href="{{ "/blog/" | prepend: site.baseurl }}"><i class="fa fa-file-text"></i> <span>Blog</span></a>
+					<a {% if page.layout == 'blog' or page.layout == 'post' %}{{ 'class="current"' }}{% endif %} href="{{ "/blog/" | prepend: site.baseurl }}"><i class="fa fa-file-text"></i> <span>Blog</span></a>
 				</li>
 				<li class="col">
 					<a href="https://www.facebook.com/groups/mxlos/" target="_blank"><i class="fa fa-group"></i> <span>Comunidad</span></a>
 				</li>
 				<li class="col">
-					<a {% if page.layout == 'meetings' or page.layout == 'meeting' %} class="current" {% endif %} href="{{ "/reuniones/" | prepend: site.baseurl }}"><i class="fa fa-calendar"></i> <span>Reuniones</span></a>
+					<a {% if page.layout == 'meetings' or page.layout == 'meeting' %}{{ 'class="current"' }}{% endif %} href="{{ "/reuniones/" | prepend: site.baseurl }}"><i class="fa fa-calendar"></i> <span>Reuniones</span></a>
 				</li>
 				<li class="col">
-					<a {% if page.layout == 'sponsors' %} class="current" {% endif %} href="{{ "/patrocinadores/" | prepend: site.baseurl }}"><i class="fa fa-briefcase"></i> <span>Patrocinadores</span></a>
+					<a {% if page.layout == 'sponsors' %}{{ 'class="current"' }}{% endif %} href="{{ "/patrocinadores/" | prepend: site.baseurl }}"><i class="fa fa-briefcase"></i> <span>Patrocinadores</span></a>
 				</li>
 				<li class="col">
 					<a href="#" rel="contactus"><i class="fa fa-envelope"></i> <span>Contacto</span></a>
