@@ -22,28 +22,47 @@ $(document).ready(function() {
 		console.log('yess');
 		$.getJSON('https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&format=json&api_key=bca5967b8308a3c928db8a7a5a34b5c9&photoset_id=72157646408522657&extras=url_m', function(data) {
 			//$('.sidebar .slider').append();
-			console.log(data.length);
 			console.log('Test, vamos a ver si desde la web regresa algo');
 		});
 	}
 
 	// Facebook Scripts
-	$.ajaxSetup({ cache: true });
-	$.getScript('https://connect.facebook.net/es_LA/all.js', function() {
-		FB.init({ appId: '274324772768932' });
-		$('#loginbutton, #feedbutton').removeAttr('disabled');
-		FB.getLoginStatus(function() {
-			if($('.sidebar .stats .members .value').length) {
-				FB.api('/318240698253471/members', function(response) {
-					console.log(response);
-					if (response  && !response .error) {
-						$('.sidebar .stats .members .value').html(response.data.length);
-						$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
+	if($('.sidebar .stats .members').length || $('.sidebar .social-profiles').length) {
+		$.ajaxSetup({ cache: true });
+		$.getScript('https://connect.facebook.net/es_LA/all.js', function() {
+			FB.init({ appId: '274324772768932' });
+			$('#loginbutton, #feedbutton').removeAttr('disabled');
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					// the user is logged in and has authenticated your
+					// app, and response.authResponse supplies
+					// the user's ID, a valid access token, a signed
+					// request, and the time the access token 
+					// and signed request each expire
+					var uid = response.authResponse.userID;
+					var accessToken = response.authResponse.accessToken;
+					FB.api('/318240698253471/members', { access_token:accessToken }, function(response) {
+						console.log(response);
+						if (response  && !response .error) {
+							if($('.sidebar .stats .members').length) {
+								$('.sidebar .stats .members .value').html(response.data.length);
+							}
+							if($('.sidebar .social-profiles')) {
+								$('.sidebar .social-profiles .facebook .value').html(response.data.length + ' Miembros');
+							}
+						}
+					});
+				} else if (response.status === 'not_authorized') {
+					if($('.sidebar .stats .members').length) {
+						$('.sidebar .stats .members .value').html(0);
 					}
-				});
+					if($('.sidebar .social-profiles')) {
+						$('.sidebar .social-profiles .facebook .value').html('0 Miembros');
+					}
+				}
 			}
 		});
-	});
+	}
 
 	// GitHub & Twitter Scripts
 	if($('.sidebar .social-profiles').length) {
