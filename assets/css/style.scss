@@ -1,4 +1,8 @@
-@charset 'utf-8';
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
 
 // Fonts
 $font-family-main: 'Source Sans Pro', sans-serif;
@@ -25,11 +29,13 @@ $message-green-color: #dff0d8;
 $message-red-color: #f2dede;
 $message-yellow-color: #fcf8e3;
 
-@import 'normalize.scss';
-
-@import 'elements/grid.scss';
-@import 'elements/box.scss';
-@import 'elements/body.scss';
-@import 'elements/header.scss';
-@import 'elements/content.scss';
-@import 'elements/footer.scss';
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+	'normalize',
+	'grid',
+	'box',
+	'body',
+	'header',
+	'content',
+	'footer'
+;
