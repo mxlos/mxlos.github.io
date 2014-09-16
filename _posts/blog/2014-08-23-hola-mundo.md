@@ -2,6 +2,7 @@
 layout: post
 title:  "Hola Mundo!"
 date:   2014-08-23 11:17:27
+categories: blog
 author: tonnyorg
 ---
 
